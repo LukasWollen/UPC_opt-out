@@ -62,7 +62,7 @@ if uploaded_file:
     st.markdown(href, unsafe_allow_html=True)
 
     # Create a download link for the output Excel file
-    excel_buffer = BytesIO()
+    excel_buffer = io.BytesIO()
     output_df.to_excel(excel_buffer, index=False)
     excel_buffer.seek(0)
     b64 = base64.b64encode(excel_buffer.getvalue()).decode()
