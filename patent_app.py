@@ -60,3 +60,11 @@ if uploaded_file:
     b64 = base64.b64encode(csv_buffer.getvalue().encode()).decode()
     href = f'<a href="data:file/csv;base64,{b64}" download="output_patent_status.csv">Download Output CSV</a>'
     st.markdown(href, unsafe_allow_html=True)
+
+    # Create a download link for the output Excel file
+    excel_buffer = BytesIO()
+    output_df.to_excel(excel_buffer, index=False)
+    excel_buffer.seek(0)
+    b64 = base64.b64encode(excel_buffer.getvalue()).decode()
+    href_excel = f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="output_patent_status.xlsx">Download Output Excel</a>'
+    st.markdown(href_excel, unsafe_allow_html=True)
