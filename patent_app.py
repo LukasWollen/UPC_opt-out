@@ -26,8 +26,7 @@ def get_opt_out_cases(patent_number):
 # Streamlit app
 st.title("UPC Patent Opt-Out Check")
 
-uploaded_file = st.file_uploader("Upload a CSV file with patent numbers. \nOpen a plain text editor (e.g., Editor or TextEdit).\nEnter the patent numbers into the text editor. Make sure each patent number is on a separate line.
-\nSave the file with a .csv extension, e.g., input_patents.csv.", type="csv")
+uploaded_file = st.file_uploader("Upload a CSV file with patent numbers. \nOpen a plain text editor (e.g., Editor or TextEdit).\nEnter the patent numbers into the text editor. Make sure each patent number is on a separate line.\nSave the file with a .csv extension, e.g., input_patents.csv.", type="csv")
 
 if uploaded_file:
     input_df = pd.read_csv(uploaded_file)
